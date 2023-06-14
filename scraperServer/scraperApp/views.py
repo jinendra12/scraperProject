@@ -10,8 +10,7 @@ from .models import CoinMarketData
 class UpdateCoinMarketData(View):
     @staticmethod
     def post(request):
-        data = json.loads(request.body) if request.body else None
-        data_list = data.get("data") if data else None
+        data_list = json.loads(request.body) if request.body else None
 
         # Added a fallback just in case if data is not coming it will call the scrapper itself to get the latest data
         if not data_list:
